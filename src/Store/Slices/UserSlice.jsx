@@ -8,10 +8,19 @@ const userSlice = createSlice({
         addUsers(state,action){
             state.push(action.payload)
         },
-        removeUsers(state,action){},
-        deleteUsers(state,action){},
+
+        removeUsers(state,action){
+        //    state.pop(action.payload)
+        state.splice(action.payload,1)
+        // let userIndexNum = state.indexOf(action.payload)
+        // state.splice(userIndexNum,1)
+        },
+
+        clearAllUsers(state,action){
+            return [];
+        },
     },
 });
 
 export default userSlice.reducer;
-export const{addUsers} = userSlice.actions;
+export const{addUsers,removeUsers,clearAllUsers} = userSlice.actions;
